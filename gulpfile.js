@@ -31,7 +31,7 @@ gulp.task('tests', function(){
     return "Message to the notifier: " + error.message;
   }))
   .pipe(notify("Tests CoffeeScripted"))
-  .pipe(mocha())
+  .pipe(mocha({reporter:'spec'}))
   .on('error', notify.onError(function(error) {
     return "Tests failed";
   }));
