@@ -1,0 +1,41 @@
+{
+  "name": "coffeeDS",
+  "version": "0.1.0",
+  "description": "DataStructure revisited and tested, in CoffeeScript",
+  "main": "gulpfile.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "gulp": "~3.5.2",
+    "gulp-coffee": "~1.4.1",
+    "gulp-coffeelint": "~0.2.0",
+    "gulp-mocha": "~0.4.1",
+    "gulp-notify": "~0.4.1",
+    "gulp-util": "~2.2.14",
+    "should": "~3.1.2",
+    "istanbul": "~0.2.4",
+    "gulp-exec": "~1.0.4"
+  },
+  "devDependencies": {
+    "mocha": "~1.17.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/beNjiox/coffeeDS.git"
+  },
+  "keywords": [
+    "CoffeeScript",
+    "trees",
+    "linkedlist",
+    "heap",
+    "hashmap",
+    "algorithm"
+  ],
+  "author": "Benjamin Guez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/beNjiox/coffeeDS/issues"
+  },
+  "homepage": "https://github.com/beNjiox/coffeeDS"
+}

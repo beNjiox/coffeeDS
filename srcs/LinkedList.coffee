@@ -61,12 +61,7 @@ class LinkedList
     isEmpty: ->
         @head == null
 
-    size: (traverse = false) ->
-        return @_size if traverse = true
-
-        @_size = 0
-        @forEach (elem) ->
-            @_size++
+    size: () ->
         return @_size
 
     _addToTail: (value) ->

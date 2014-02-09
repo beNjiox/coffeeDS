@@ -1,4 +1,5 @@
 var gulp       = require('gulp');
+var exec       = require('gulp-exec');
 var gutil      = require('gulp-util');
 var coffee     = require('gulp-coffee');
 var coffeelint = require('gulp-coffeelint');
@@ -7,8 +8,9 @@ var notify     = require("gulp-notify");
 
 
 var paths = {
-  scripts: [ "srcs/*.coffee" ],
-  tests: "tests/*.coffee"
+  scripts:    [ "srcs/*.coffee" ],
+  tests:      "tests/*.coffee",
+  test_files: [ "tests/*.js", '!tests/buckets.js' ]
 };
 
 gulp.task('scripts', function(){
@@ -33,6 +35,11 @@ gulp.task('tests', function(){
   .on('error', notify.onError(function(error) {
     return "Tests failed";
   }));
+});
+
+gulp.task('cover', function(){
+  gulp.src(paths.test_files)
+      .pipe(exec("istanbul cover ./node_modules/mocha/bin/_mocha tests/{LinkedList,BSTree}.js -- -R spec"))
 });
 
 gulp.task('watch', function(){

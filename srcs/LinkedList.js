@@ -80,17 +80,7 @@ LinkedList = (function() {
     return this.head === null;
   };
 
-  LinkedList.prototype.size = function(traverse) {
-    if (traverse == null) {
-      traverse = false;
-    }
-    if (traverse = true) {
-      return this._size;
-    }
-    this._size = 0;
-    this.forEach(function(elem) {
-      return this._size++;
-    });
+  LinkedList.prototype.size = function() {
     return this._size;
   };
 

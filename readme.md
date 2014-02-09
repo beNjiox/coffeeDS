@@ -51,26 +51,36 @@ Data structure covered so far:
 
 then
 * sorts
-* recursions basics
 * etc
 
 
 # Getting started
 
-```
-$ git clone http://github.com/beNjiox/coffeeDS
-$ cd coffeeDS
-$ gulp tests
-```
+The repo makes uses of:
+* [mocha](https://github.com/visionmedia/mocha) 
+* [should.js](https://github.com/visionmedia/should.js)
+* [istanbul](https://github.com/gotwarlost/istanbul) 
+* [gulp](https://github.com/gulpjs/gulp) (with notify, coffeescript,coffeelint, exec)
 
-Current Coverage: 100%
+Don't forget to npm install upon cloning
+
+*Current Coverage: 88%*
 
 # Usage Example
 
 ```
+  # main.js
   BSTree = require('./BSTree')
   
   tree = new BSTree()
   tree.add [100, 42, 45, 70, 120, 48]
   console.log tree.size(), tree.height()
 ```
+
+```
+$ git clone http://github.com/beNjiox/coffeeDS
+$ cd coffeeDS && npm install
+$ gulp tests
+$ gulp cover && open ./coverage/index.html
+```
+
