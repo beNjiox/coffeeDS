@@ -25,7 +25,7 @@ Data structure covered so far:
 * toString
 
 *LinkedList (simple)*
->>>>>>> fb735144591f8e2e6876362753fcce4b1277082a
+
 * add(item, index)
 * clear()
 * elementAtIndex(index)
