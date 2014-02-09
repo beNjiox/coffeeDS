@@ -15,12 +15,12 @@ LLNode = require('./LLNode')
     - remove(item, equalsFunction)
     - removeElementAtIndex(index)
     - reverse()
+   - half
 
     todo:
        - equals(other, equalsFunction)
        - sum
        - merge
-       - half
 ###
 
 class LinkedList
@@ -167,5 +167,18 @@ class LinkedList
             cursor       = current
             current      = next
         @head = cursor
+
+    half: ->
+        faster = @head
+        slower = @head
+        i = 0
+
+        while (faster)
+            faster = faster.next
+            if (faster)
+                faster = faster.next
+                slower = slower.next
+        return slower.value
+
 
 module.exports = LinkedList;

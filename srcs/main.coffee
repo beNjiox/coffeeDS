@@ -6,7 +6,7 @@ tree = new BSTree()
 ll   = new LinkedList()
 b_ll = new buckets.LinkedList()
 
-for value in [1,2,3]
+for value in [42, 20, 10, 30, 40, 25, 50, 60, 100, 55, 53, 52]
   tree.add(value)
   ll.add(value)
   b_ll.add(value)
@@ -41,6 +41,4 @@ for value in [1,2,3]
 # console.log ll.toString()
 # console.log "first = #{ll.first()} <===> last = #{ll.last()}"
 
-console.log(ll.toString())
-ll.reverse()
-console.log(ll.toString())
+console.log(ll.half())

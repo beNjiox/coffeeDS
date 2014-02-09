@@ -18,12 +18,12 @@ LLNode = require('./LLNode');
     - remove(item, equalsFunction)
     - removeElementAtIndex(index)
     - reverse()
+   - half
 
     todo:
        - equals(other, equalsFunction)
        - sum
        - merge
-       - half
 */
 
 
@@ -239,6 +239,21 @@ LinkedList = (function() {
       current = next;
     }
     return this.head = cursor;
+  };
+
+  LinkedList.prototype.half = function() {
+    var faster, i, slower;
+    faster = this.head;
+    slower = this.head;
+    i = 0;
+    while (faster) {
+      faster = faster.next;
+      if (faster) {
+        faster = faster.next;
+        slower = slower.next;
+      }
+    }
+    return slower.value;
   };
 
   return LinkedList;
