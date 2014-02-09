@@ -24,8 +24,6 @@ gulp.task('scripts', function(){
 
 gulp.task('tests', function(){
   gulp.src(paths.tests)
-  .pipe(coffeelint())
-  .pipe(coffeelint.reporter())
   .pipe(coffee({bare: true}))
   .on("error", notify.onError(function (error) {
     return "Message to the notifier: " + error.message;

@@ -18,7 +18,7 @@ LLNode = require('./LLNode');
     - remove(item, equalsFunction)
     - removeElementAtIndex(index)
     - reverse()
-   - half
+    - half()
 
     todo:
        - equals(other, equalsFunction)
