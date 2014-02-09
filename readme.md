@@ -69,18 +69,18 @@ Don't forget to npm install upon cloning
 # Usage Example
 
 ```
-  # main.js
-  BSTree = require('./BSTree')
-  
-  tree = new BSTree()
-  tree.add [100, 42, 45, 70, 120, 48]
-  console.log tree.size(), tree.height()
+# main.coffee
+BSTree = require('./BSTree')
+
+tree = new BSTree()
+tree.add [100, 42, 45, 70, 120, 48]
+console.log tree.size(), tree.height()
 ```
 
 ```
 $ git clone http://github.com/beNjiox/coffeeDS
 $ cd coffeeDS && npm install
 $ gulp tests
-$ gulp cover && open ./coverage/index.html
+$ gulp cover && open ./coverage/lcov-report/index.html
 ```
 
