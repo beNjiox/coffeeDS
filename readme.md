@@ -4,57 +4,29 @@ Basic Datastructure in CoffeeScripts.
 
 Unit tested against the awesome [buckets](https://github.com/mauriciosantos/buckets/) lib.
 
-Data structure covered so far:
-------------------------------
+### Structure covered so far:
 
-*BSTree, with the following API*
-* insert
-* remove
-* find
-* contains
-* size
-* height
-* clear
-* isEmpty
-* isLeaf
-* childs
-* min
-* max
-* print
-* toArray
-* toString
 
-*LinkedList (simple)*
+* [Binary Search Trees](https://github.com/beNjiox/coffeeDS/wiki/Binary-Search-Tree-API)
+* [Linked Lists](https://github.com/beNjiox/coffeeDS/wiki/LinkedList-api)
 
-* add(item, index)
-* clear()
-* elementAtIndex(index)
-* size()
-* toArray()
-* contains(item, equalsFunction)
-* indexOf(item, equalsFunction)
-* isEmpty()
-* forEach(callback)
-* first()
-* last()
-* remove(item, equalsFunction)
-* removeElementAtIndex(index)
-* reverse()
-* half()
+### Incoming
 
-# Incoming DS
 
 * red black trees & AVL
 * stack
 * heap
 * hashMap
+* and other stuff like sorts, generic search (A* etc)
 
-then
-* sorts
-* etc
+### Why ?
 
+No specific reasons, I'm just having some fun rediscovering all that things and thought it could be fun to share with people.
+It's also a good way to test new greats tools like istanbul or gulp and enjoy the power of coffeescript! 
 
-# Getting started
+*Note that I don't consider this as a production ready library, even though it has been fully tested.*
+
+### Getting started
 
 The repo makes uses of:
 * [mocha](https://github.com/visionmedia/mocha) 
@@ -66,7 +38,7 @@ Don't forget to npm install upon cloning
 
 *Current Coverage: 88%*
 
-# Usage Example
+### Usage Example
 
 ```
 # main.coffee
