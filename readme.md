@@ -2,11 +2,12 @@
 
 Basic Datastructure in CoffeeScripts.
 
-Unit tested against the awesome buckets lib.
+Unit tested against the awesome [buckets](https://github.com/mauriciosantos/buckets/) lib.
 
-# Data structure covered so far:
+Data structure covered so far:
+------------------------------
 
-BSTree, with the following API
+*BSTree, with the following API*
 * insert
 * remove
 * find
@@ -23,18 +24,32 @@ BSTree, with the following API
 * toArray
 * toString
 
-LinkedList (simple)
-* insert
-* remove
-* find
-* contains
-* reverse
-* print
+*LinkedList (simple)*
+* add(item, index)
+* clear()
+* elementAtIndex(index)
+* size()
+* toArray()
+* contains(item, equalsFunction)
+* indexOf(item, equalsFunction)
+* isEmpty()
+* forEach(callback)
+* first()
+* last()
+* remove(item, equalsFunction)
+* removeElementAtIndex(index)
+* reverse()
+* half()
 
 # Incoming DS
-* red black trees
+
+* red black trees & AVL
 * stack
 * heap
+* hashMap
+
+then
+* sortings (quickSort, mergeSort etc.)
 
 
 # Getting started
@@ -43,4 +58,16 @@ LinkedList (simple)
 $ git clone http://github.com/beNjiox/coffeeDS
 $ cd coffeeDS
 $ gulp tests
+```
+
+Current Coverage: 100%
+
+# Usage Example
+
+```
+  BSTree = require('./BSTree')
+  
+  tree = new BSTree()
+  tree.add [100, 42, 45, 70, 120, 48]
+  console.log tree.size(), tree.height()
 ```
