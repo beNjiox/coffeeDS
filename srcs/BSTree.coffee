@@ -51,7 +51,7 @@ class BSTree
 
   _height: (node) ->
     if (node == null)
-      return -1;
+      return -1
 
     return Math.max(@_height(node.left), @_height(node.right)) + 1
 
@@ -80,11 +80,14 @@ class BSTree
 
     current = @_root
     while (current isnt null and current.value isnt value)
-      if value < current.value then current = current.left else current = current.right
+      if value < current.value
+        current = current.left
+      else
+        current = current.right
     if current is null then return false else return current
 
   contains: (value) ->
-    if @find(value) == false then return false else return true
+    @find(value) != false
 
   toArray: ->
     nodeArray = []

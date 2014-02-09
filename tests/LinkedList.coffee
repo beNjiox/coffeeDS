@@ -11,8 +11,8 @@ describe 'LinkedList', ->
 
   fill_list = ->
     for value in fixture_array
-      bucket_ll.add(value, 0)
-      ll.add(value, 0)
+      bucket_ll.add(value)
+      ll.add(value)
 
   beforeEach ->
     ll           = new LinkedList
@@ -60,8 +60,25 @@ describe 'LinkedList', ->
 
     ll.toArray().should.be.eql bucket_ll.toArray()
 
+  it "#clear() should reset the list", ->
+    fill_list()
+    ll.clear()
+    ll.isEmpty().should.be.true
 
+  it "#elementAtIndex() should return false when index < 0", ->
+    fill_list()
 
+    assert ll.elementAtIndex(-5) == undefined
 
+  it "#elementAtIndex() should return false when index > size()", ->
+    fill_list()
+
+    assert ll.elementAtIndex(500) == undefined
+
+  it "#elementAtIndex() should return the value for the node at the given index", ->
+    fill_list()
+
+    ll.elementAtIndex(4).should.be.eql(40)
+    ll.elementAtIndex(4).should.be.eql bucket_ll.elementAtIndex(4)
 
 

@@ -4,10 +4,11 @@ LLNode = require('./LLNode')
   LinkedList Interface
     add(item, index)
     toArray()
-
     clear()
-    contains(item, equalsFunction)
+    size()
     elementAtIndex(index)
+
+    contains(item, equalsFunction)
     equals(other, equalsFunction)
     first()
     forEach(callback)
@@ -17,14 +18,43 @@ LLNode = require('./LLNode')
     remove(item, equalsFunction)
     removeElementAtIndex(index)
     reverse()
-    size()
 ###
 
 class LinkedList
     head: null
+    _size: 0
+
+    _nodeAtIndex: (index) ->
+        current = @head
+        i = 0
+        while i < index
+            current = current.next
+            i++
+        return current
+
+
+    elementAtIndex: (index) ->
+        if (index > @_size || index < 0)
+            return undefined
+
+        node = @_nodeAtIndex index
+        return node.value
+
+    clear: ->
+        @head = null
 
     isEmpty: ->
         @head == null
+
+    size: (traverse = false) ->
+        return @_size if traverse = true
+
+        current = @head
+        @_size = 0
+        while (current)
+            current = current.next
+            @_size++
+        return @_size
 
     _addToTail: (value) ->
         current = @head
@@ -62,18 +92,16 @@ class LinkedList
         new_node      = new LLNode(value)
 
         if @isEmpty()
-            if index > 0
-                return false;
-            else
-                @_addToHead value
-                return true
-
-        if (index == 0)
-            @_addToHead value
-        else if (index == null)
-            @_addToTail value
+            if index > 0 then return false else @_addToHead value
         else
-            @_addToIndex value, index
+            if (index == 0)
+                @_addToHead value
+            else if (index == null)
+                @_addToTail value
+            else
+                @_addToIndex value, index
+
+        @_size++
 
     toArray: ->
         node_array = []

@@ -126,11 +126,7 @@ BSTree = (function() {
   };
 
   BSTree.prototype.contains = function(value) {
-    if (this.find(value) === false) {
-      return false;
-    } else {
-      return true;
-    }
+    return this.find(value) !== false;
   };
 
   BSTree.prototype.toArray = function() {

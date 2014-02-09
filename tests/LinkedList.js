@@ -19,8 +19,8 @@ describe('LinkedList', function() {
     _results = [];
     for (_i = 0, _len = fixture_array.length; _i < _len; _i++) {
       value = fixture_array[_i];
-      bucket_ll.add(value, 0);
-      _results.push(ll.add(value, 0));
+      bucket_ll.add(value);
+      _results.push(ll.add(value));
     }
     return _results;
   };
@@ -59,10 +59,28 @@ describe('LinkedList', function() {
     bucket_ll.add(88, 4);
     return ll.toArray().should.be.eql(bucket_ll.toArray());
   });
-  return it("#add() should return false if the index is out of bound", function() {
+  it("#add() should return false if the index is out of bound", function() {
     fill_list();
     ll.add(88, 100);
     bucket_ll.add(88, 100);
     return ll.toArray().should.be.eql(bucket_ll.toArray());
+  });
+  it("#clear() should reset the list", function() {
+    fill_list();
+    ll.clear();
+    return ll.isEmpty().should.be["true"];
+  });
+  it("#elementAtIndex() should return false when index < 0", function() {
+    fill_list();
+    return assert(ll.elementAtIndex(-5) === void 0);
+  });
+  it("#elementAtIndex() should return false when index > size()", function() {
+    fill_list();
+    return assert(ll.elementAtIndex(500) === void 0);
+  });
+  return it("#elementAtIndex() should return the value for the node at the given index", function() {
+    fill_list();
+    ll.elementAtIndex(4).should.be.eql(40);
+    return ll.elementAtIndex(4).should.be.eql(bucket_ll.elementAtIndex(4));
   });
 });

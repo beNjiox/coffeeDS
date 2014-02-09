@@ -21,10 +21,14 @@ for (_i = 0, _len = _ref.length; _i < _len; _i++) {
   b_ll.add(value);
 }
 
-console.log("ll to array ", ll.toArray());
+console.log(ll.elementAtIndex(4));
 
-console.log("bll to array", b_ll.toArray());
+console.log(b_ll.elementAtIndex(4));
 
-console.log(ll.add(876, 13));
+console.log(ll.elementAtIndex(10));
 
-console.log("ll to array ", ll.toArray());
+console.log(b_ll.elementAtIndex(10));
+
+console.log(ll.elementAtIndex(100));
+
+console.log(b_ll.elementAtIndex(100));

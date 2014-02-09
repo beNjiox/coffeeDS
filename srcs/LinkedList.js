@@ -7,10 +7,11 @@ LLNode = require('./LLNode');
   LinkedList Interface
     add(item, index)
     toArray()
-
     clear()
-    contains(item, equalsFunction)
+    size()
     elementAtIndex(index)
+
+    contains(item, equalsFunction)
     equals(other, equalsFunction)
     first()
     forEach(callback)
@@ -20,7 +21,6 @@ LLNode = require('./LLNode');
     remove(item, equalsFunction)
     removeElementAtIndex(index)
     reverse()
-    size()
 */
 
 
@@ -29,8 +29,51 @@ LinkedList = (function() {
 
   LinkedList.prototype.head = null;
 
+  LinkedList.prototype._size = 0;
+
+  LinkedList.prototype._nodeAtIndex = function(index) {
+    var current, i;
+    current = this.head;
+    i = 0;
+    while (i < index) {
+      current = current.next;
+      i++;
+    }
+    return current;
+  };
+
+  LinkedList.prototype.elementAtIndex = function(index) {
+    var node;
+    if (index > this._size || index < 0) {
+      return void 0;
+    }
+    node = this._nodeAtIndex(index);
+    return node.value;
+  };
+
+  LinkedList.prototype.clear = function() {
+    return this.head = null;
+  };
+
   LinkedList.prototype.isEmpty = function() {
     return this.head === null;
+  };
+
+  LinkedList.prototype.size = function(traverse) {
+    var current;
+    if (traverse == null) {
+      traverse = false;
+    }
+    if (traverse = true) {
+      return this._size;
+    }
+    current = this.head;
+    this._size = 0;
+    while (current) {
+      current = current.next;
+      this._size++;
+    }
+    return this._size;
   };
 
   LinkedList.prototype._addToTail = function(value) {
@@ -83,16 +126,17 @@ LinkedList = (function() {
         return false;
       } else {
         this._addToHead(value);
-        return true;
+      }
+    } else {
+      if (index === 0) {
+        this._addToHead(value);
+      } else if (index === null) {
+        this._addToTail(value);
+      } else {
+        this._addToIndex(value, index);
       }
     }
-    if (index === 0) {
-      return this._addToHead(value);
-    } else if (index === null) {
-      return this._addToTail(value);
-    } else {
-      return this._addToIndex(value, index);
-    }
+    return this._size++;
   };
 
   LinkedList.prototype.toArray = function() {

@@ -11,8 +11,19 @@ for value in [42, 20, 10, 30, 40, 25, 50, 60, 100, 55, 53, 52]
   ll.add(value)
   b_ll.add(value)
 
-console.log "ll to array ", ll.toArray()
-console.log "bll to array", b_ll.toArray()
 
-console.log (ll.add(876, 13))
-console.log "ll to array ", ll.toArray()
+# console.log (ll.size())
+# console.log (ll.size(true))
+# ll.add(876, 13)
+# console.log (ll.size())
+# console.log (ll.size(true))
+
+# console.log(ll.elementAtIndex(0))
+console.log(ll.elementAtIndex(4))
+console.log(b_ll.elementAtIndex(4))
+
+console.log(ll.elementAtIndex(10))
+console.log(b_ll.elementAtIndex(10))
+
+console.log(ll.elementAtIndex(100))
+console.log(b_ll.elementAtIndex(100))
