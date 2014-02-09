@@ -4,23 +4,26 @@ var LLNode, LinkedList;
 LLNode = require('./LLNode');
 
 /*
-  LinkedList Interface
-    add(item, index)
-    toArray()
-    clear()
-    size()
-    elementAtIndex(index)
+    - add(item, index)
+    - clear()
+    - elementAtIndex(index)
+    - size()
+    - toArray()
+    - contains(item, equalsFunction)
+    - indexOf(item, equalsFunction)
+    - isEmpty()
+    - forEach(callback)
+    - first()
+    - last()
+    - remove(item, equalsFunction)
+    - removeElementAtIndex(index)
+    - reverse()
 
-    contains(item, equalsFunction)
-    equals(other, equalsFunction)
-    first()
-    forEach(callback)
-    indexOf(item, equalsFunction)
-    isEmpty()
-    last()
-    remove(item, equalsFunction)
-    removeElementAtIndex(index)
-    reverse()
+    todo:
+       - equals(other, equalsFunction)
+       - sum
+       - merge
+       - half
 */
 
 
@@ -30,6 +33,24 @@ LinkedList = (function() {
   LinkedList.prototype.head = null;
 
   LinkedList.prototype._size = 0;
+
+  LinkedList.prototype.indexOf = function(value) {
+    var current, k;
+    current = this.head;
+    k = 0;
+    while (current) {
+      if (current.value === value) {
+        return k;
+      }
+      current = current.next;
+      k++;
+    }
+    return -1;
+  };
+
+  LinkedList.prototype.contains = function(value) {
+    return this.indexOf(value) !== -1;
+  };
 
   LinkedList.prototype._nodeAtIndex = function(index) {
     var current, i;
@@ -60,19 +81,16 @@ LinkedList = (function() {
   };
 
   LinkedList.prototype.size = function(traverse) {
-    var current;
     if (traverse == null) {
       traverse = false;
     }
     if (traverse = true) {
       return this._size;
     }
-    current = this.head;
     this._size = 0;
-    while (current) {
-      current = current.next;
-      this._size++;
-    }
+    this.forEach(function(elem) {
+      return this._size++;
+    });
     return this._size;
   };
 
@@ -140,14 +158,87 @@ LinkedList = (function() {
   };
 
   LinkedList.prototype.toArray = function() {
-    var current, node_array;
+    var node_array;
     node_array = [];
-    current = this.head;
-    while (current !== null) {
-      node_array.push(current.value);
-      current = current.next;
-    }
+    this.forEach(function(elm) {
+      return node_array.push(elm.value);
+    });
     return node_array;
+  };
+
+  LinkedList.prototype.toString = function() {
+    if (this.isEmpty()) {
+      return "";
+    } else {
+      return this.toArray().toString();
+    }
+  };
+
+  LinkedList.prototype.forEach = function(cb) {
+    var current, _results;
+    current = this.head;
+    _results = [];
+    while (current) {
+      cb(current);
+      _results.push(current = current.next);
+    }
+    return _results;
+  };
+
+  LinkedList.prototype.first = function() {
+    if (this.isEmpty()) {
+      return void 0;
+    } else {
+      return this.head.value;
+    }
+  };
+
+  LinkedList.prototype.last = function() {
+    var last_elem;
+    if (this.isEmpty()) {
+      return void 0;
+    }
+    last_elem = null;
+    this.forEach(function(elem) {
+      if (elem.next === null) {
+        return last_elem = elem;
+      }
+    });
+    return last_elem.value;
+  };
+
+  LinkedList.prototype.remove = function(value) {
+    var index;
+    index = this.indexOf(value);
+    if (index === -1) {
+      return false;
+    }
+    return this.removeElementAtIndex(index);
+  };
+
+  LinkedList.prototype.removeElementAtIndex = function(index) {
+    var node;
+    if (index !== 0) {
+      node = this._nodeAtIndex(index - 1);
+      node.next = node.next.next;
+    } else {
+      this.head = this.head.next;
+    }
+    return this._size--;
+  };
+
+  LinkedList.prototype.reverse = function() {
+    var current, cursor, next;
+    current = this.head;
+    cursor = null;
+    next = this.head;
+    while (current) {
+      next = current.next;
+      current.next = cursor;
+      cursor = current;
+      current = next;
+    }
+    return this.head = cursor;
   };
 
   return LinkedList;

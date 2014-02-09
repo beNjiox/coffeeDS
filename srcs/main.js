@@ -13,7 +13,7 @@ ll = new LinkedList();
 
 b_ll = new buckets.LinkedList();
 
-_ref = [42, 20, 10, 30, 40, 25, 50, 60, 100, 55, 53, 52];
+_ref = [1, 2, 3];
 for (_i = 0, _len = _ref.length; _i < _len; _i++) {
   value = _ref[_i];
   tree.add(value);
@@ -21,14 +21,8 @@ for (_i = 0, _len = _ref.length; _i < _len; _i++) {
   b_ll.add(value);
 }
 
-console.log(ll.elementAtIndex(4));
+console.log(ll.toString());
 
-console.log(b_ll.elementAtIndex(4));
+ll.reverse();
 
-console.log(ll.elementAtIndex(10));
-
-console.log(b_ll.elementAtIndex(10));
-
-console.log(ll.elementAtIndex(100));
-
-console.log(b_ll.elementAtIndex(100));
+console.log(ll.toString());
