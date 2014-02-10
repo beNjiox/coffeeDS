@@ -7,7 +7,7 @@ native_array_insertion_sort = require('./../../srcs/sorts/native_array_insertion
 describe "Sorts (on 50k elements)", ->
 
   generated_array = []
-  for i in [0..50000]
+  for i in [0..10000]
     generated_array.push Math.floor(Math.random() * 150)
 
   generated_sorted_array = generated_array.slice().sort (a,b) ->
@@ -26,10 +26,9 @@ describe "Sorts (on 50k elements)", ->
     it "#native_array_quick_sort() should sort an array successfully", ->
       native_array_quick_sort(to_sort).should.be.eql sorted_array
 
-    # TOFIX
-    # it "#native_array_quick_sort() should sort an already sorted array successfully", ->
-    #   to_sort = sorted_array
-    #   native_array_quick_sort(to_sort).should.be.eql sorted_array
+    it "#native_array_quick_sort() should sort an already sorted array successfully", ->
+      to_sort = sorted_array.slice()
+      native_array_quick_sort(to_sort).should.be.eql sorted_array
 
     it "#native_array_quick_sort() should sort an array with one element", ->
       native_array_quick_sort([1]).should.be.eql [1]
@@ -40,7 +39,7 @@ describe "Sorts (on 50k elements)", ->
       native_array_merge_sort(to_sort).should.be.eql sorted_array
 
     it "#mergeSort() should should sort an already sort array successfully", ->
-      to_sort = sorted_array
+      to_sort = sorted_array.slice()
       native_array_merge_sort(to_sort).should.be.eql sorted_array
 
     it "#mergeSort() should should sort an empty array successfully", ->
@@ -54,8 +53,12 @@ describe "Sorts (on 50k elements)", ->
     it "#insertionSort() should should sort an array successfully", ->
       native_array_insertion_sort(to_sort).should.be.eql sorted_array
 
+    it "#insertionSort() should should sort an array in place successfully", ->
+      native_array_insertion_sort(to_sort)
+      to_sort.should.be.eql sorted_array
+
     it "#insertionSort() should should sort an already sort array successfully", ->
-      to_sort = sorted_array
+      to_sort = sorted_array.slice()
       native_array_insertion_sort(to_sort).should.be.eql sorted_array
 
     it "#insertionSort() should should sort an empty array successfully", ->
