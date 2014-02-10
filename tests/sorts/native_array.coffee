@@ -4,9 +4,10 @@ native_array_quick_sort     = require('./../../srcs/sorts/native_array_quicksort
 native_array_merge_sort     = require('./../../srcs/sorts/native_array_mergesort')
 native_array_insertion_sort = require('./../../srcs/sorts/native_array_insertion_sort')
 
-describe "Sorts (on 50k elements)", ->
+describe "Sorts (on 10k elements)", ->
 
   generated_array = []
+  # generate array of 10k entries with number between 0 and 150
   for i in [0..10000]
     generated_array.push Math.floor(Math.random() * 150)
 
@@ -14,7 +15,7 @@ describe "Sorts (on 50k elements)", ->
     return a - b
 
   sorted_array = []
-  to_sort = []
+  to_sort      = []
 
   beforeEach ->
     # to don't affect the generated array

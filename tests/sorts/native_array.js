@@ -11,7 +11,7 @@ native_array_merge_sort = require('./../../srcs/sorts/native_array_mergesort');
 
 native_array_insertion_sort = require('./../../srcs/sorts/native_array_insertion_sort');
 
-describe("Sorts (on 50k elements)", function() {
+describe("Sorts (on 10k elements)", function() {
   var generated_array, generated_sorted_array, i, sorted_array, to_sort, _i;
   generated_array = [];
   for (i = _i = 0; _i <= 10000; i = ++_i) {
