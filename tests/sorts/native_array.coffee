@@ -1,20 +1,35 @@
-assert                  = require('assert')
-should                  = require('should')
-native_array_quick_sort = require('./../../srcs/sorts/native_array_quicksort')
-native_array_merge_sort = require('./../../srcs/sorts/native_array_mergesort')
+assert                      = require('assert')
+should                      = require('should')
+native_array_quick_sort     = require('./../../srcs/sorts/native_array_quicksort')
+native_array_merge_sort     = require('./../../srcs/sorts/native_array_mergesort')
+native_array_insertion_sort = require('./../../srcs/sorts/native_array_insertion_sort')
 
-describe "Sorts", ->
-  to_sort      = [2, 21, 412, 4123, 21, 123412, 9213, 890, 42, 1230, 44433]
-  sorted_array = to_sort.sort (a,b) ->
+describe "Sorts (on 50k elements)", ->
+
+  generated_array = []
+  for i in [0..50000]
+    generated_array.push Math.floor(Math.random() * 150)
+
+  generated_sorted_array = generated_array.slice().sort (a,b) ->
     return a - b
 
+  sorted_array = []
+  to_sort = []
+
   beforeEach ->
-    to_sort = [2, 21, 412, 4123, 21, 123412, 9213, 890, 42, 1230, 44433]
+    # to don't affect the generated array
+    to_sort      = generated_array.slice()
+    sorted_array = generated_sorted_array.slice()
 
   describe "quickSort", ->
 
     it "#native_array_quick_sort() should sort an array successfully", ->
       native_array_quick_sort(to_sort).should.be.eql sorted_array
+
+    # TOFIX
+    # it "#native_array_quick_sort() should sort an already sorted array successfully", ->
+    #   to_sort = sorted_array
+    #   native_array_quick_sort(to_sort).should.be.eql sorted_array
 
     it "#native_array_quick_sort() should sort an array with one element", ->
       native_array_quick_sort([1]).should.be.eql [1]
@@ -23,4 +38,29 @@ describe "Sorts", ->
 
     it "#mergeSort() should should sort an array successfully", ->
       native_array_merge_sort(to_sort).should.be.eql sorted_array
+
+    it "#mergeSort() should should sort an already sort array successfully", ->
+      to_sort = sorted_array
+      native_array_merge_sort(to_sort).should.be.eql sorted_array
+
+    it "#mergeSort() should should sort an empty array successfully", ->
+      native_array_merge_sort([]).should.be.eql []
+
+    it "#mergeSort() should should sort an array of 1 item successfully", ->
+      native_array_merge_sort([42]).should.be.eql [42]
+
+  describe "insertionSort", ->
+
+    it "#insertionSort() should should sort an array successfully", ->
+      native_array_insertion_sort(to_sort).should.be.eql sorted_array
+
+    it "#insertionSort() should should sort an already sort array successfully", ->
+      to_sort = sorted_array
+      native_array_insertion_sort(to_sort).should.be.eql sorted_array
+
+    it "#insertionSort() should should sort an empty array successfully", ->
+      native_array_insertion_sort([]).should.be.eql []
+
+    it "#insertionSort() should should sort an array of 1 item successfully", ->
+      native_array_insertion_sort([42]).should.be.eql [42]
 
