@@ -37,9 +37,9 @@ gulp.task('tests', function(){
   }));
 });
 
-gulp.task('cover', function(){
-  gulp.src(paths.test_files)
-      .pipe(exec("istanbul cover ./node_modules/mocha/bin/_mocha tests/{LinkedList,BSTree}.js -- -R spec"))
+gulp.task('cover', function(t){
+  gulp.src(paths.tests)
+      .pipe(exec("istanbul cover ./node_modules/mocha/bin/_mocha tests/{LinkedList,BSTree}.js tests/sorts/*.js -- -R spec"));
 });
 
 gulp.task('watch', function(){
