@@ -8,9 +8,9 @@ var notify     = require("gulp-notify");
 
 
 var paths = {
-  scripts:    [ "srcs/*.coffee" ],
-  tests:      "tests/*.coffee",
-  test_files: [ "tests/*.js", '!tests/buckets.js' ]
+  scripts:    [ "srcs/**/*.coffee" ],
+  tests:      "tests/**/*.coffee",
+  test_files: [ "tests/**/.js", '!tests/buckets.js' ]
 };
 
 gulp.task('scripts', function(){
