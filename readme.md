@@ -1,4 +1,4 @@
-## CoffeeDS
+## CoffeeDS [![Build Status](https://travis-ci.org/beNjiox/coffeeDS.png?branch=master)](https://travis-ci.org/beNjiox/coffeeDS)
 
 Basic Datastructure in CoffeeScripts.
 
