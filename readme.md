@@ -1,4 +1,4 @@
-## CoffeeDS [![Build Status](https://travis-ci.org/beNjiox/coffeeDS.png?branch=master)](https://travis-ci.org/beNjiox/coffeeDS)
+## CoffeeDS [![Build Status](https://travis-ci.org/beNjiox/coffeeDS.png?branch=master)](https://travis-ci.org/beNjiox/coffeeDS) [![Coverage Status](https://coveralls.io/repos/beNjiox/coffeeDS/badge.png?branch=master)](https://coveralls.io/r/beNjiox/coffeeDS?branch=master)
 
 Basic Datastructure in CoffeeScripts.
 
@@ -36,7 +36,7 @@ The repo makes uses of:
 
 Don't forget to npm install upon cloning
 
-*Current Coverage: 88%*
+[![Coverage Status](https://coveralls.io/repos/beNjiox/coffeeDS/badge.png?branch=master)](https://coveralls.io/r/beNjiox/coffeeDS?branch=master)
 
 ### Usage Example
 
