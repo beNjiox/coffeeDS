@@ -22,9 +22,6 @@ Unit tested against the awesome [buckets](https://github.com/mauriciosantos/buck
 ### Why ?
 
 No specific reasons, I'm just having some fun rediscovering all that things and thought it could be fun to share with people.
-It's also a good way to test new greats tools like istanbul or gulp and enjoy the power of coffeescript! 
-
-*Note that I don't consider this as a production ready library, even though it has been fully tested.*
 
 ### Getting started
 
@@ -35,8 +32,6 @@ The repo makes uses of:
 * [gulp](https://github.com/gulpjs/gulp) (with notify, coffeescript,coffeelint, exec)
 
 Don't forget to npm install upon cloning
-
-[![Coverage Status](https://coveralls.io/repos/beNjiox/coffeeDS/badge.png?branch=master)](https://coveralls.io/r/beNjiox/coffeeDS?branch=master)
 
 ### Usage Example
 
