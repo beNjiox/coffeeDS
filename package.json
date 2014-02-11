@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha tests/{BSTree,LinkedList} tests/sorts/native_array.js"
+    "test": "ls ./tests/ && ./node_modules/mocha/bin/mocha ./tests/BSTree ./tests/LinkedList ./tests/sorts/native_array"
   },
   "dependencies": {
     "gulp": "~3.5.2",
