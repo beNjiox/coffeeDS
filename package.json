@@ -6,6 +6,9 @@
   "directories": {
     "test": "tests"
   },
+  "scripts": {
+    "test": "mocha tests/{BSTree,LinkedList} tests/sorts/native_array.js"
+  },
   "dependencies": {
     "gulp": "~3.5.2",
     "gulp-coffee": "~1.4.1",
